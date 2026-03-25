@@ -8,12 +8,13 @@ import { AppService } from './app.service';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
+      port: 5432,
+      username: 'postgres',
+      password: '',
+      database: 'postgres',
       entities: [],
-      synchronize: true,
+      synchronize: true, // disable for prod
+      logging: true,
     }),
   ],
   controllers: [AppController],
