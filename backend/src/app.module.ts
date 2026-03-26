@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { Task } from './task/task.entity';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { AppService } from './app.service';
       username: 'postgres',
       password: '',
       database: 'postgres',
-      entities: [],
+      entities: [Task],
       synchronize: true, // disable for prod
       logging: true,
     }),
