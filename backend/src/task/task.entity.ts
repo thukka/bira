@@ -6,6 +6,9 @@ export class Task {
   id: number;
 
   @Column()
+  assigned: string;
+
+  @Column()
   subject: string;
 
   @Column()
