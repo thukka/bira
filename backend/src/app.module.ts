@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Task } from './task/task.entity';
+import { TaskModule } from './task/task.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { Task } from './task/task.entity';
       synchronize: true, // disable for prod
       logging: true,
     }),
+    TaskModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -13,4 +13,8 @@ export class TaskService {
   findAll(): Promise<Task[]> {
     return this.taskRepository.find();
   }
+
+  create(task: Task) {
+    return this.taskRepository.insert(task);
+  }
 }
