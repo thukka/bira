@@ -17,4 +17,8 @@ export class TaskService {
   create(task: Task) {
     return this.taskRepository.insert(task);
   }
+
+  delete(id: string) {
+    return this.taskRepository.delete(id);
+  }
 }
