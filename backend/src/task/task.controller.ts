@@ -9,7 +9,7 @@ export class TaskController {
 
   @Get()
   async getTasks() {
-    return await this.taskService.findAll();
+    return this.taskService.findAll();
   }
 
   @Post()
@@ -26,6 +26,6 @@ export class TaskController {
 
   @Delete(':id')
   async deleteTask(@Param('id') id: string) {
-    return await this.taskService.delete(id);
+    return this.taskService.delete(id);
   }
 }
