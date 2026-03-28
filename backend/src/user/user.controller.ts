@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { User } from './user.entity';
@@ -24,5 +24,10 @@ export class UserController {
     user.password = passwordHash;
 
     return this.userService.create(user);
+  }
+
+  @Get()
+  async findUser(@Body() { id }: User) {
+    return this.userService.findOne(id);
   }
 }

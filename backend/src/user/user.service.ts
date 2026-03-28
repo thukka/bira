@@ -13,4 +13,8 @@ export class UserService {
   create(user: User) {
     return this.userRepository.insert(user);
   }
+
+  findOne(id: number): Promise<User | null> {
+    return this.userRepository.findOneBy({ id });
+  }
 }
