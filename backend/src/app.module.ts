@@ -9,6 +9,7 @@ import { AppDataSource } from './data-source';
   imports: [
     TypeOrmModule.forRoot({
       ...AppDataSource.options,
+      migrations: undefined,
     }),
     TaskModule,
     UserModule,
