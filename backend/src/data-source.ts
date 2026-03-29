@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { DataSource } from 'typeorm';
 import { Task } from './task/task.entity';
 import { User } from './user/user.entity';
@@ -12,4 +13,5 @@ export const AppDataSource = new DataSource({
   entities: [Task, User],
   synchronize: false, // disable for prod
   logging: true,
+  migrations: ['src/db/migrations/*{.ts,.js}'],
 });

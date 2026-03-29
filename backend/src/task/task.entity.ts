@@ -6,6 +6,15 @@ export class Task {
   id: number;
 
   @Column()
+  createdBy: string;
+
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
+
+  @Column()
   assigned: string;
 
   @Column()
