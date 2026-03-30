@@ -16,6 +16,9 @@ export class TaskController {
   async createTask(@Body() createTaskDto: CreateTaskDto) {
     const task: Task = new Task();
 
+    task.createdBy = createTaskDto.createdBy;
+    task.createdAt = new Date();
+    task.updatedAt = new Date();
     task.assigned = createTaskDto.assigned;
     task.subject = createTaskDto.subject;
     task.description = createTaskDto.description;
