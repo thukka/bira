@@ -9,7 +9,6 @@ type Props = {
 export const LoginForm = ({ onSubmit, error }: Props) => {
   const [user, setUser] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  console.log("error", error);
 
   const submitLogin = async (e: ChangeEvent) => {
     e.preventDefault();

@@ -3,7 +3,6 @@ import { LoginForm } from "../components/login-form";
 
 export const LoginPage = () => {
   const [error, setError] = useState<string | null>(null);
-  console.log('LOGIN.tsx error ', error);
 
   const handleLogin = async (user: string, password: string) => {
     setError(null);
