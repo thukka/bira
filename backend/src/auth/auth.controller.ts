@@ -45,4 +45,11 @@ export class AuthController {
   getProfile(@Req() req: Request) {
     return req['user'] as JwtPayload;
   }
+
+  @UseGuards(AuthGuard)
+  @Post('logout')
+  logoutUser(@Res({ passthrough: true }) response: Response) {
+    response.clearCookie('token');
+    return { success: true };
+  }
 }
