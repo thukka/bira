@@ -10,8 +10,8 @@ export class TaskService {
     private taskRepository: Repository<Task>,
   ) {}
 
-  findAll(): Promise<Task[]> {
-    return this.taskRepository.find();
+  findAll(username: string): Promise<Task[]> {
+    return this.taskRepository.find({ where: { assigned: username } });
   }
 
   create(task: Task) {
