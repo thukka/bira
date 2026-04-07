@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const cookieParser = cookieParserMiddleware.default;
 
+  app.setGlobalPrefix('api');
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
 
