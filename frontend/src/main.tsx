@@ -3,12 +3,15 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { LoginPage } from "./routes/login";
 import { TaskPage } from "./routes/task";
-// import App from './App.tsx'
+import { BrowserRouter, Route, Routes } from "react-router";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    {/* <App /> */}
-    {/* <LoginPage /> */}
-    <TaskPage />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/task" element={<TaskPage />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>,
 );

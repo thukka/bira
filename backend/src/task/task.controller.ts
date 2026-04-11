@@ -1,15 +1,35 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Req,
+  UnauthorizedException,
+  UseGuards,
+} from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateTaskDto } from '../dto/create-task.dto';
 import { Task } from './task.entity';
+import { AuthGuard } from '../auth/auth.guard';
+import type { Request } from 'express';
+import { AuthUser } from './task.types';
 
 @Controller('task')
 export class TaskController {
   constructor(private taskService: TaskService) {}
 
+  @UseGuards(AuthGuard)
   @Get()
-  async getTasks() {
-    return this.taskService.findAll();
+  async getTasks(@Req() req: Request) {
+    if (!req['user']) {
+      throw new UnauthorizedException();
+    }
+
+    const auth = req['user'] as AuthUser;
+
+    return this.taskService.findAll(auth.username);
   }
 
   @Post()
